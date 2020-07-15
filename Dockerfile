@@ -1,11 +1,9 @@
 FROM node:14.5-alpine
 
-USER root
-
 WORKDIR /usr/local/src/app
 
 COPY ./package.json .
 
-RUN npm install
+RUN npm --no-color install
 
 ENTRYPOINT [ "/usr/local/src/app/node_modules/.bin/wrangler" ]
